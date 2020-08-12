@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net48</TargetFramework>
+        <AssemblyName>WebServiceConsole</AssemblyName>
+        <RootNamespace>WebServiceConsole</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="System.ServiceModel" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <WCFMetadata Include="Service References" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <WCFMetadataStorage Include="Service References\MindBody.SaleService" />
+      <WCFMetadataStorage Include="Service References\MindBody.SiteService" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Service References\MindBody.SaleService\MindBody.SaleService.svcmap">
+        <Generator>WCF Proxy Generator</Generator>
+        <LastGenOutput>MindBody.SaleService.cs</LastGenOutput>
+      </None>
+      <None Include="Service References\MindBody.SaleService\MindBody.SaleService.webref" />
+      <None Include="Service References\MindBody.SaleService\SaleService.wsdl" />
+      <None Include="Service References\MindBody.SiteService\MindBody.SiteService.svcmap">
+        <Generator>WCF Proxy Generator</Generator>
+        <LastGenOutput>MindBody.SiteService.cs</LastGenOutput>
+      </None>
+      <None Include="Service References\MindBody.SiteService\MindBody.SiteService.webref" />
+      <None Include="Service References\MindBody.SiteService\SiteService.wsdl" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="Service References\MindBody.SaleService\MindBody.SaleService.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>MindBody.SaleService.svcmap</DependentUpon>
+      </Compile>
+      <Compile Include="Service References\MindBody.SiteService\MindBody.SiteService.cs">
+        <AutoGen>True</AutoGen>
+        <DesignTime>True</DesignTime>
+        <DependentUpon>MindBody.SiteService.svcmap</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>
